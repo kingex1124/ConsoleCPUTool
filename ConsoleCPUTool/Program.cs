@@ -33,6 +33,11 @@ namespace ConsoleCPUTool
             // 列出系統中所有的程序
             Process[] processes = Process.GetProcesses();
 
+            // 可以取得所有執行續的名稱
+            var category = new PerformanceCounterCategory("Process");
+            var instances = category.GetInstanceNames();
+         
+
             // 依照名稱排序執行續
             processes = processes.OrderBy(o => o.ProcessName).ToArray();
 
